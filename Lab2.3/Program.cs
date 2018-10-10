@@ -10,12 +10,38 @@ namespace Lab2._3
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            string userAnswerContinue;
+            double answerPerimeter, answerArea, answervolume, length, width, height;
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            Console.WriteLine("Welcome to Grand Circus' Room Detail Generator! \n");
+
+            do
+            {
+                //user inputs
+                Console.WriteLine("Enter Length: ");
+                length = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Width: ");
+                width = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Height: ");
+                height = double.Parse(Console.ReadLine());
+
+                //logic
+                answerPerimeter = (length * 2) + (width * 2);
+                answerArea = length * width;
+                answervolume = length * width * height;
+
+                //answer     
+                Console.WriteLine("{0} {1} {2}", "Area: " + answerArea,
+                    "\nPerimeter: " + answerPerimeter, "\nVolume: " + answervolume);
+
+                // check for yes or no only.
+                do
+                {
+                    Console.WriteLine("Continue? (y/n): ");
+                    userAnswerContinue = Console.ReadLine().ToLower();
+                } while (userAnswerContinue != "y" && userAnswerContinue != "n");
+            //continue Main loop
+            } while (userAnswerContinue != "n");
         }
     }
 }
